@@ -1,23 +1,3 @@
-/*
- This file is part of the OdinMS Maple Story Server
- Copyright (C) 2008 Patrick Huy <patrick.huy@frz.cc> 
- Matthias Butz <matze@odinms.de>
- Jan Christian Meyer <vimes@odinms.de>
-
- This program is free software: you can redistribute it and/or modify
- it under the terms of the GNU Affero General Public License version 3
- as published by the Free Software Foundation. You may not use, modify
- or distribute this program under any other version of the
- GNU Affero General Public License.
-
- This program is distributed in the hope that it will be useful,
- but WITHOUT ANY WARRANTY; without even the implied warranty of
- MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- GNU Affero General Public License for more details.
-
- You should have received a copy of the GNU Affero General Public License
- along with this program.  If not, see <http://www.gnu.org/licenses/>.
- */
 package net.channel;
 
 import client.MapleCharacter;
@@ -64,8 +44,6 @@ import org.apache.mina.common.SimpleByteBufferAllocator;
 import org.apache.mina.filter.codec.ProtocolCodecFilter;
 import org.apache.mina.transport.socket.nio.SocketAcceptor;
 import org.apache.mina.transport.socket.nio.SocketAcceptorConfig;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import provider.MapleDataProviderFactory;
 import scripting.event.EventScriptManager;
 import server.AutobanManager;
@@ -82,7 +60,6 @@ public class ChannelServer implements Runnable, ChannelServerMBean {
     private static int uniqueID = 1;
     private int port = 7575;
     private static Properties initialProp;
-    private static final Logger log = LoggerFactory.getLogger(ChannelServer.class);
     //private static ThreadPoolExecutor executor = new ScheduledThreadPoolExecutor(5);
     private static WorldRegistry worldRegistry;
     private PlayerStorage players = new PlayerStorage();
@@ -132,7 +109,7 @@ public class ChannelServer implements Runnable, ChannelServerMBean {
                         return;
                     }
                 }
-                log.warn("Reconnecting to world server");
+                System.out.println("Reconnecting to world server");
                 synchronized (wci) {
                     // completely re-establish the rmi connection
                     try {
@@ -158,7 +135,8 @@ public class ChannelServer implements Runnable, ChannelServerMBean {
                         DatabaseConnection.getConnection();
                         wci.serverReady();
                     } catch (Exception e) {
-                        log.error("Reconnecting failed", e);
+                        System.out.println("Reconnecting failed");
+                        System.out.println(e);
                     }
                     worldReady = true;
                 }
@@ -206,11 +184,11 @@ public class ChannelServer implements Runnable, ChannelServerMBean {
         try {
             MapleServerHandler serverHandler = new MapleServerHandler(PacketProcessor.getProcessor(PacketProcessor.Mode.CHANNELSERVER), channel);
             acceptor.bind(new InetSocketAddress(port), serverHandler, cfg);
-            log.info("Channel {}: Listening on port {}", getChannel(), port);
+            System.out.println("Listening on port " + port);
             wci.serverReady();
             eventSM.init();
         } catch (IOException e) {
-            log.error("Binding to port " + port + " failed (ch: " + getChannel() + ")", e);
+            System.out.println("Listening on port " + port + " failed");
         }
     }
 
@@ -336,7 +314,8 @@ public class ChannelServer implements Runnable, ChannelServerMBean {
         try {
             return getWorldInterface().getIP(channel);
         } catch (RemoteException e) {
-            log.error("Lost connection to world server", e);
+            System.out.println("Lost connection to world server");
+            System.out.println(e);
             throw new RuntimeException("Lost connection to world server");
         }
     }
@@ -420,7 +399,8 @@ public class ChannelServer implements Runnable, ChannelServerMBean {
         try {
             g = this.getWorldInterface().getGuild(gid, mgc);
         } catch (RemoteException re) {
-            log.error("RemoteException while fetching MapleGuild.", re);
+            System.out.println("RemoteException while fetching MapleGuild.");
+            System.out.println(re);
             return null;
         }
         if (gsStore.get(gid) == null) {
@@ -442,7 +422,8 @@ public class ChannelServer implements Runnable, ChannelServerMBean {
                 }
                 return gsStore.get(gid);	//if g is null, we will end up returning null
             } catch (RemoteException re) {
-                log.error("RemoteException while fetching GuildSummary.", re);
+                System.out.println("RemoteException while fetching GuildSummary.");
+                System.out.println(re);
                 return null;
             }
         }
@@ -464,7 +445,8 @@ public class ChannelServer implements Runnable, ChannelServerMBean {
                 }
             }
         } catch (RemoteException re) {
-            log.error("RemoteException while reloading GuildSummary.", re);
+            System.out.println("RemoteException while reloading GuildSummary.");
+            System.out.println(re);
         }
     }
 

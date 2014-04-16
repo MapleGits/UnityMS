@@ -1,28 +1,3 @@
-/*
- This file is part of the OdinMS Maple Story Server
- Copyright (C) 2008 Patrick Huy <patrick.huy@frz.cc> 
- Matthias Butz <matze@odinms.de>
- Jan Christian Meyer <vimes@odinms.de>
-
- This program is free software: you can redistribute it and/or modify
- it under the terms of the GNU Affero General Public License version 3
- as published by the Free Software Foundation. You may not use, modify
- or distribute this program under any other version of the
- GNU Affero General Public License.
-
- This program is distributed in the hope that it will be useful,
- but WITHOUT ANY WARRANTY; without even the implied warranty of
- MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- GNU Affero General Public License for more details.
-
- You should have received a copy of the GNU Affero General Public License
- along with this program.  If not, see <http://www.gnu.org/licenses/>.
- */
-
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package net.channel;
 
 import client.BuddyList;
@@ -51,17 +26,11 @@ import net.world.MaplePartyCharacter;
 import net.world.PartyOperation;
 import net.world.guild.MapleGuildSummary;
 import net.world.remote.CheaterData;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import server.ShutdownServer;
 import server.TimerManager;
 import tools.CollectionUtil;
 import tools.MaplePacketCreator;
 
-/**
- *
- * @author Matze
- */
 public class ChannelWorldInterfaceImpl extends UnicastRemoteObject implements ChannelWorldInterface {
     private static final long serialVersionUID = 7815256899088644192L;
     private ChannelServer server;
@@ -357,7 +326,6 @@ public class ChannelWorldInterfaceImpl extends UnicastRemoteObject implements Ch
 
     @Override
     public void setOfflineGuildStatus(int guildid, byte guildrank, int cid) throws RemoteException {
-        Logger log = LoggerFactory.getLogger(this.getClass());
         try {
             java.sql.Connection con = DatabaseConnection.getConnection();
             java.sql.PreparedStatement ps = con.prepareStatement("UPDATE characters SET guildid = ?, guildrank = ? WHERE id = ?");
@@ -367,7 +335,8 @@ public class ChannelWorldInterfaceImpl extends UnicastRemoteObject implements Ch
             ps.execute();
             ps.close();
         } catch (SQLException se) {
-            log.error("SQLException: " + se.getLocalizedMessage(), se);
+            System.out.println("SQLException: " + se.getLocalizedMessage());
+            System.out.println(se);
         }
     }
 

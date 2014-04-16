@@ -1,28 +1,3 @@
-/*
- This file is part of the OdinMS Maple Story Server
- Copyright (C) 2008 Patrick Huy <patrick.huy@frz.cc> 
- Matthias Butz <matze@odinms.de>
- Jan Christian Meyer <vimes@odinms.de>
-
- This program is free software: you can redistribute it and/or modify
- it under the terms of the GNU Affero General Public License version 3
- as published by the Free Software Foundation. You may not use, modify
- or distribute this program under any other version of the
- GNU Affero General Public License.
-
- This program is distributed in the hope that it will be useful,
- but WITHOUT ANY WARRANTY; without even the implied warranty of
- MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- GNU Affero General Public License for more details.
-
- You should have received a copy of the GNU Affero General Public License
- along with this program.  If not, see <http://www.gnu.org/licenses/>.
- */
-
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package net.world;
 
 import database.DatabaseConnection;
@@ -47,17 +22,10 @@ import net.world.guild.MapleGuildCharacter;
 import net.world.remote.CheaterData;
 import net.world.remote.WorldChannelInterface;
 import net.world.remote.WorldLocation;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import tools.CollectionUtil;
 
-/**
- *
- * @author Matze
- */
 public class WorldChannelInterfaceImpl extends UnicastRemoteObject implements WorldChannelInterface {
     private static final long serialVersionUID = -5568606556235590482L;
-    private static Logger log = LoggerFactory.getLogger(WorldChannelInterfaceImpl.class);
     private ChannelWorldInterface cb;
     private int dbId;
     private boolean ready = false;
@@ -89,7 +57,8 @@ public class WorldChannelInterfaceImpl extends UnicastRemoteObject implements Wo
             rs.close();
             ps.close();
         } catch (SQLException ex) {
-            log.error("Could not retrieve channel configuration", ex);
+            System.out.println("Could not retrieve channel configuration");
+            System.out.println(ex);
         }
         return ret;
     }
@@ -103,7 +72,6 @@ public class WorldChannelInterfaceImpl extends UnicastRemoteObject implements Wo
                 WorldRegistryImpl.getInstance().deregisterLoginServer(wli);
             }
         }
-        log.info("Channel {} is online.", cb.getChannelId());
     }
 
     public boolean isReady() {
