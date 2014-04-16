@@ -20,8 +20,6 @@
  */
 package client.messages.commands;
 
-import java.rmi.RemoteException;
-import java.util.List;
 import client.MapleCharacter;
 import client.MapleCharacterUtil;
 import client.MapleClient;
@@ -30,6 +28,8 @@ import client.messages.CommandDefinition;
 import client.messages.IllegalCommandSyntaxException;
 import client.messages.MessageCallback;
 import client.messages.ServernoticeMapleClientMessageCallback;
+import java.rmi.RemoteException;
+import java.util.List;
 import net.world.remote.CheaterData;
 import tools.MaplePacketCreator;
 

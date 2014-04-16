@@ -21,7 +21,6 @@
 package net.channel.handler;
 
 import client.MapleClient;
-import client.MaplePet;
 import net.AbstractMaplePacketHandler;
 import tools.MaplePacketCreator;
 import tools.data.input.SeekableLittleEndianAccessor;

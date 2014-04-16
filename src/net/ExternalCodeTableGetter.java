@@ -26,9 +26,9 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Properties;
-import tools.HexTool;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import tools.HexTool;
 
 public class ExternalCodeTableGetter {
     Properties props;

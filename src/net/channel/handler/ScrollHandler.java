@@ -25,19 +25,19 @@
 package net.channel.handler;
 
 import client.IEquip;
+import client.IEquip.ScrollResult;
 import client.IItem;
 import client.InventoryException;
 import client.Item;
 import client.MapleClient;
 import client.MapleInventory;
 import client.MapleInventoryType;
-import client.IEquip.ScrollResult;
 import net.AbstractMaplePacketHandler;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import server.MapleItemInformationProvider;
 import tools.MaplePacketCreator;
 import tools.data.input.SeekableLittleEndianAccessor;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 /**
  * @author Matze

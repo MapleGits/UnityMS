@@ -20,8 +20,8 @@
  */
 package net.world;
 
-import java.io.Serializable;
 import client.MapleCharacter;
+import java.io.Serializable;
 
 public class MapleMessengerCharacter implements Serializable {
     private static final long serialVersionUID = 6215463252132450750L;

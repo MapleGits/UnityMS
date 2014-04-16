@@ -21,11 +21,11 @@
 package provider.wz;
 
 import java.io.IOException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import tools.data.input.LittleEndianAccessor;
 import tools.data.input.SeekableLittleEndianAccessor;
 import tools.data.output.LittleEndianWriter;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 /*
  * Ported Code, see WZFile.java for more info

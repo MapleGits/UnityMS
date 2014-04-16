@@ -20,9 +20,9 @@
  */
 package server.life;
 
+import client.MapleCharacter;
 import java.awt.Point;
 import java.util.concurrent.atomic.AtomicInteger;
-import client.MapleCharacter;
 import server.maps.MapleMap;
 
 public class SpawnPoint {

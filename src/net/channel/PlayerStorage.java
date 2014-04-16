@@ -20,10 +20,10 @@
  */
 package net.channel;
 
+import client.MapleCharacter;
 import java.util.Collection;
 import java.util.LinkedHashMap;
 import java.util.Map;
-import client.MapleCharacter;
 
 public class PlayerStorage implements IPlayerStorage {
     Map<String, MapleCharacter> nameToChar = new LinkedHashMap<String, MapleCharacter>();

@@ -1,5 +1,6 @@
 package scripting.portal;
 
+import client.MapleClient;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
@@ -12,10 +13,9 @@ import javax.script.ScriptEngine;
 import javax.script.ScriptEngineFactory;
 import javax.script.ScriptEngineManager;
 import javax.script.ScriptException;
-import client.MapleClient;
-import server.MaplePortal;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import server.MaplePortal;
 
 public class PortalScriptManager {
     private static final Logger log = LoggerFactory.getLogger(PortalScriptManager.class);

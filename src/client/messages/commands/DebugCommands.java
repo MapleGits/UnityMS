@@ -20,25 +20,20 @@
  */
 package client.messages.commands;
 
-import java.awt.Point;
-import java.util.List;
-import java.util.ArrayList;
 import client.MapleCharacter;
 import client.MapleClient;
-import client.MaplePet;
-import client.MapleStat;
 import client.anticheat.CheatingOffense;
 import client.messages.Command;
 import client.messages.CommandDefinition;
 import client.messages.IllegalCommandSyntaxException;
 import client.messages.MessageCallback;
+import java.awt.Point;
 import server.MaplePortal;
 import server.TimerManager;
 import server.maps.MapleDoor;
 import server.quest.MapleQuest;
 import tools.HexTool;
 import tools.MaplePacketCreator;
-import tools.Pair;
 import tools.data.output.MaplePacketLittleEndianWriter;
 
 public class DebugCommands implements Command {

@@ -20,18 +20,18 @@
  */
 package net.channel.handler;
 
-import java.net.InetAddress;
 import client.MapleCharacter;
 import client.MapleClient;
+import java.net.InetAddress;
 import net.AbstractMaplePacketHandler;
 import net.MaplePacket;
 import net.channel.ChannelServer;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import server.MaplePortal;
 import server.maps.MapleMap;
 import tools.MaplePacketCreator;
 import tools.data.input.SeekableLittleEndianAccessor;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 public class ChangeMapHandler extends AbstractMaplePacketHandler {
     private static Logger log = LoggerFactory.getLogger(ChangeMapHandler.class);

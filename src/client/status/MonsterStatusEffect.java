@@ -20,9 +20,9 @@
  */
 package client.status;
 
+import client.ISkill;
 import java.util.Map;
 import java.util.concurrent.ScheduledFuture;
-import client.ISkill;
 import tools.ArrayMap;
 
 public class MonsterStatusEffect {

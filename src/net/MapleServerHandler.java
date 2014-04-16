@@ -23,21 +23,17 @@ package net;
 import client.MapleClient;
 import net.channel.ChannelServer;
 import net.login.LoginWorker;
-import tools.HexTool;
+import org.apache.mina.common.IdleStatus;
+import org.apache.mina.common.IoHandlerAdapter;
+import org.apache.mina.common.IoSession;
 import tools.MapleAESOFB;
 import tools.MaplePacketCreator;
 import tools.data.input.ByteArrayByteStream;
 import tools.data.input.GenericSeekableLittleEndianAccessor;
 import tools.data.input.SeekableLittleEndianAccessor;
-import org.apache.mina.common.IdleStatus;
-import org.apache.mina.common.IoHandlerAdapter;
-import org.apache.mina.common.IoSession;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 public class MapleServerHandler extends IoHandlerAdapter {
-    private final static Logger log = LoggerFactory.getLogger(MapleServerHandler.class);
-    private final static short MAPLE_VERSION = 55;
+    private final static short MAPLE_VERSION = 28;
     private PacketProcessor processor;
     private int channel = -1;
 
@@ -62,22 +58,12 @@ public class MapleServerHandler extends IoHandlerAdapter {
     @Override
     public void exceptionCaught(IoSession session, Throwable cause) throws Exception {
         MapleClient client = (MapleClient) session.getAttribute(MapleClient.CLIENT_KEY);
-        log.error(MapleClient.getLogMessage(client, cause.getMessage()), cause);
-		// ChannelServer.getInstance(1).broadcastPacket(
-        // MaplePacketCreator.getChatText(30000, "Exception: " + cause.getClass().getName() + ": " +
-        // cause.getMessage()));
-        // for (int i = 0; i < cause.getStackTrace().length; i++) {
-        // StackTraceElement ste = cause.getStackTrace()[i];
-        // ChannelServer.getInstance(1).broadcastPacket(MaplePacketCreator.getChatText(30000, ste.toString()));
-        // if (i > 2) {
-        // break;
-        // }
-        // }
+        System.out.println(MapleClient.getLogMessage(client, cause.getMessage()) + cause);
     }
 
     @Override
     public void sessionOpened(IoSession session) throws Exception {
-        log.info("IoSession with {} opened", session.getRemoteAddress());
+        System.out.println("IoSession with " + session.getRemoteAddress() + " opened");
         if (channel > -1) {
             if (ChannelServer.getInstance(channel).isShutdown()) {
                 session.close();
@@ -120,26 +106,15 @@ public class MapleServerHandler extends IoHandlerAdapter {
         short packetId = slea.readShort();
         MapleClient client = (MapleClient) session.getAttribute(MapleClient.CLIENT_KEY);
         MaplePacketHandler packetHandler = processor.getHandler(packetId);
-        // HexTool#toSting on large buffers is rather expensive - so only do it when we really need to
-        if (log.isTraceEnabled() || log.isInfoEnabled()) {
-            String from = "";
-            if (client.getPlayer() != null) {
-                from = "from " + client.getPlayer().getName() + " ";
-            }
-            if (packetHandler == null) {
-                log.info("Got unhandeled Message {} ({}) {}\n{}", new Object[]{from, content.length,
-                    HexTool.toString(content), HexTool.toStringFromAscii(content)});
-            } else if (log.isTraceEnabled()) {
-                log.trace("Got Message {}handled by {} ({}) {}\n{}", new Object[]{from,
-                    packetHandler.getClass().getSimpleName(), content.length, HexTool.toString(content),
-                    HexTool.toStringFromAscii(content)});
-            }
-        }
-        if (packetHandler != null && packetHandler.validateState(client)) {
+        if (packetHandler == null) {
+            System.out.println("Recieved unhandled opcode");
+            System.out.println(slea.toString());
+        } else if (packetHandler != null && packetHandler.validateState(client)) {
             try {
                 packetHandler.handlePacket(slea, client);
             } catch (Throwable t) {
-                log.error(MapleClient.getLogMessage(client, "Exception during processing packet: " + packetHandler.getClass().getName() + ": " + t.getMessage()), t);
+                System.out.println("Unable to handle packet " + packetHandler.getClass().getName());
+                System.out.println(slea.toString());
             }
         }
     }
@@ -147,9 +122,6 @@ public class MapleServerHandler extends IoHandlerAdapter {
     @Override
     public void sessionIdle(final IoSession session, final IdleStatus status) throws Exception {
         MapleClient client = (MapleClient) session.getAttribute(MapleClient.CLIENT_KEY);
-        if (client != null && client.getPlayer() != null && log.isTraceEnabled()) {
-            log.trace("Player {} went idle", client.getPlayer().getName());
-        }
         if (client != null) {
             client.sendPing();
         }

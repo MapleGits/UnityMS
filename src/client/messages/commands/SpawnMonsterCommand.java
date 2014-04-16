@@ -20,12 +20,12 @@
  */
 package client.messages.commands;
 
-import static client.messages.CommandProcessor.getNamedDoubleArg;
-import static client.messages.CommandProcessor.getNamedIntArg;
-import static client.messages.CommandProcessor.getOptionalIntArg;
 import client.MapleClient;
 import client.messages.Command;
 import client.messages.CommandDefinition;
+import static client.messages.CommandProcessor.getNamedDoubleArg;
+import static client.messages.CommandProcessor.getNamedIntArg;
+import static client.messages.CommandProcessor.getOptionalIntArg;
 import client.messages.IllegalCommandSyntaxException;
 import client.messages.MessageCallback;
 import server.life.MapleLifeFactory;

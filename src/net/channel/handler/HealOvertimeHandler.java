@@ -23,9 +23,9 @@ package net.channel.handler;
 import client.MapleClient;
 import client.anticheat.CheatingOffense;
 import net.AbstractMaplePacketHandler;
-import tools.data.input.SeekableLittleEndianAccessor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import tools.data.input.SeekableLittleEndianAccessor;
 
 public class HealOvertimeHandler extends AbstractMaplePacketHandler {
     private static Logger log = LoggerFactory.getLogger(HealOvertimeHandler.class);

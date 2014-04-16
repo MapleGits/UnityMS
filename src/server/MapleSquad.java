@@ -20,9 +20,9 @@
  */
 package server;
 
+import client.MapleCharacter;
 import java.util.LinkedList;
 import java.util.List;
-import client.MapleCharacter;
 
 /**
  *

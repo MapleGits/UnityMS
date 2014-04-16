@@ -20,8 +20,8 @@
  */
 package net.channel;
 
-import java.util.Collection;
 import client.MapleCharacter;
+import java.util.Collection;
 
 public interface IPlayerStorage {
     public MapleCharacter getCharacterByName(String name);

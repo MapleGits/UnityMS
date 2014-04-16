@@ -20,7 +20,6 @@
  */
 package net.channel.handler;
 
-import java.util.concurrent.ScheduledFuture;
 import client.IItem;
 import client.ISkill;
 import client.MapleBuffStat;
@@ -32,6 +31,7 @@ import client.MapleInventoryType;
 import client.MapleJob;
 import client.MapleWeaponType;
 import client.SkillFactory;
+import java.util.concurrent.ScheduledFuture;
 import net.MaplePacket;
 import server.MapleInventoryManipulator;
 import server.MapleItemInformationProvider;

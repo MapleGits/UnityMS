@@ -20,11 +20,13 @@
  */
 package net.channel.handler;
 
+import client.MapleClient;
 import java.awt.Point;
 import java.util.List;
 import java.util.Random;
-import client.MapleClient;
 import net.MaplePacket;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import server.life.MapleMonster;
 import server.life.MobSkill;
 import server.life.MobSkillFactory;
@@ -34,8 +36,6 @@ import server.movement.LifeMovementFragment;
 import tools.MaplePacketCreator;
 import tools.Pair;
 import tools.data.input.SeekableLittleEndianAccessor;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 public class MoveLifeHandler extends AbstractMovementPacketHandler {
     private static Logger log = LoggerFactory.getLogger(MoveLifeHandler.class);

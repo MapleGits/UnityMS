@@ -20,9 +20,9 @@
  */
 package net.channel.handler;
 
-import java.rmi.RemoteException;
 import client.MapleCharacter;
 import client.MapleClient;
+import java.rmi.RemoteException;
 import net.AbstractMaplePacketHandler;
 import net.channel.ChannelServer;
 import net.world.MapleParty;

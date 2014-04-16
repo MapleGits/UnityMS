@@ -20,12 +20,12 @@
  */
 package server.maps;
 
-import java.awt.Point;
-import java.awt.Rectangle;
 import client.ISkill;
 import client.MapleCharacter;
 import client.MapleClient;
 import client.SkillFactory;
+import java.awt.Point;
+import java.awt.Rectangle;
 import net.MaplePacket;
 import server.MapleStatEffect;
 import tools.MaplePacketCreator;

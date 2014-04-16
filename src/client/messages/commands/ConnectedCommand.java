@@ -20,14 +20,14 @@
  */
 package client.messages.commands;
 
-import java.rmi.RemoteException;
-import java.util.Map;
 import client.MapleClient;
 import client.messages.Command;
 import client.messages.CommandDefinition;
 import client.messages.IllegalCommandSyntaxException;
 import client.messages.MessageCallback;
 import client.messages.ServernoticeMapleClientMessageCallback;
+import java.rmi.RemoteException;
+import java.util.Map;
 
 public class ConnectedCommand implements Command {
     @Override

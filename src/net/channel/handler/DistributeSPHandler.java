@@ -26,10 +26,10 @@ import client.MapleClient;
 import client.MapleStat;
 import client.SkillFactory;
 import net.AbstractMaplePacketHandler;
-import server.AutobanManager;
-import tools.data.input.SeekableLittleEndianAccessor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import server.AutobanManager;
+import tools.data.input.SeekableLittleEndianAccessor;
 
 public class DistributeSPHandler extends AbstractMaplePacketHandler {
     private static Logger log = LoggerFactory.getLogger(DistributeSPHandler.class);

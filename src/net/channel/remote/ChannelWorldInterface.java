@@ -25,11 +25,11 @@
  */
 package net.channel.remote;
 
+import client.BuddyList.BuddyAddResult;
+import client.BuddyList.BuddyOperation;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.util.List;
-import client.BuddyList.BuddyAddResult;
-import client.BuddyList.BuddyOperation;
 import net.MaplePacket;
 import net.world.MapleMessenger;
 import net.world.MapleParty;

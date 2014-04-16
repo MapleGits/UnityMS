@@ -20,12 +20,12 @@
  */
 package client.messages.commands;
 
-import java.rmi.RemoteException;
 import client.MapleClient;
 import client.messages.Command;
 import client.messages.CommandDefinition;
 import client.messages.IllegalCommandSyntaxException;
 import client.messages.MessageCallback;
+import java.rmi.RemoteException;
 import net.MaplePacket;
 import net.channel.ChannelServer;
 import tools.MaplePacketCreator;

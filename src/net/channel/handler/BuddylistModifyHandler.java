@@ -20,21 +20,21 @@
  */
 package net.channel.handler;
 
+import client.BuddyList;
+import client.BuddyList.BuddyAddResult;
+import client.BuddyList.BuddyOperation;
 import static client.BuddyList.BuddyOperation.ADDED;
 import static client.BuddyList.BuddyOperation.DELETED;
+import client.BuddylistEntry;
+import client.CharacterNameAndId;
+import client.MapleCharacter;
+import client.MapleClient;
+import database.DatabaseConnection;
 import java.rmi.RemoteException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import client.BuddyList;
-import client.BuddylistEntry;
-import client.CharacterNameAndId;
-import client.MapleCharacter;
-import client.MapleClient;
-import client.BuddyList.BuddyAddResult;
-import client.BuddyList.BuddyOperation;
-import database.DatabaseConnection;
 import net.AbstractMaplePacketHandler;
 import net.channel.remote.ChannelWorldInterface;
 import net.world.remote.WorldChannelInterface;

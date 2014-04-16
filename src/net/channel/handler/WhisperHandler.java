@@ -24,10 +24,10 @@
  */
 package net.channel.handler;
 
-import java.rmi.RemoteException;
 import client.MapleCharacter;
 import client.MapleClient;
 import client.messages.CommandProcessor;
+import java.rmi.RemoteException;
 import net.AbstractMaplePacketHandler;
 import net.channel.ChannelServer;
 import tools.MaplePacketCreator;

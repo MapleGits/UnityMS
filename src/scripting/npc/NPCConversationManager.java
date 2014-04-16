@@ -25,11 +25,6 @@
  */
 package scripting.npc;
 
-import java.sql.SQLException;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import client.IItem;
 import client.Item;
 import client.MapleCharacter;
@@ -37,7 +32,13 @@ import client.MapleClient;
 import client.MapleInventory;
 import client.MapleInventoryType;
 import client.MapleJob;
+import client.MapleStat;
 import client.SkillFactory;
+import java.sql.SQLException;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import scripting.AbstractPlayerInteraction;
 import scripting.event.EventManager;
 import server.MapleInventoryManipulator;
@@ -45,7 +46,6 @@ import server.MapleItemInformationProvider;
 import server.MapleShopFactory;
 import server.quest.MapleQuest;
 import tools.MaplePacketCreator;
-import client.MapleStat;
 
 /**
  *

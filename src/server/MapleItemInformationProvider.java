@@ -28,18 +28,16 @@
  */
 package server;
 
+import client.Equip;
+import client.IItem;
+import client.MapleInventoryType;
+import client.MapleWeaponType;
 import java.io.File;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
-import java.util.List;
 import java.util.Map;
-import java.util.Random;
 import java.util.Map.Entry;
-import client.Equip;
-import client.IItem;
-import client.MapleCharacter;
-import client.MapleInventoryType;
-import client.MapleWeaponType;
+import java.util.Random;
 import provider.MapleData;
 import provider.MapleDataDirectoryEntry;
 import provider.MapleDataFileEntry;

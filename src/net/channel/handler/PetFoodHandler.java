@@ -20,12 +20,12 @@
  */
 package net.channel.handler;
 
-import java.util.Random;
 import client.ExpTable;
 import client.MapleCharacter;
 import client.MapleClient;
 import client.MapleInventoryType;
 import client.MaplePet;
+import java.util.Random;
 import net.AbstractMaplePacketHandler;
 import server.MapleInventoryManipulator;
 import tools.MaplePacketCreator;

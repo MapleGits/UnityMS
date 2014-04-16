@@ -20,15 +20,14 @@
  */
 package server.life;
 
+import client.MapleCharacter;
+import client.MapleDisease;
+import client.status.MonsterStatus;
 import java.awt.Point;
 import java.awt.Rectangle;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.Random;
-import client.MapleCharacter;
-import client.MapleDisease;
-import client.status.MonsterStatus;
 import server.maps.MapleMapObject;
 import server.maps.MapleMapObjectType;
 

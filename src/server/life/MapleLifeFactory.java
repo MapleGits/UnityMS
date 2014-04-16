@@ -26,6 +26,8 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import provider.MapleData;
 import provider.MapleDataProvider;
 import provider.MapleDataProviderFactory;
@@ -33,8 +35,6 @@ import provider.MapleDataTool;
 import server.maps.MapleMapFactory;
 import tools.Pair;
 import tools.StringUtil;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 public class MapleLifeFactory {
     private static Logger log = LoggerFactory.getLogger(MapleMapFactory.class);

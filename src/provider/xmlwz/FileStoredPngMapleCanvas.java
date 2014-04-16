@@ -1,5 +1,6 @@
 package provider.xmlwz;
 
+import com.sun.imageio.plugins.png.PNGImageReaderSpi;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -8,7 +9,6 @@ import javax.imageio.spi.IIORegistry;
 import javax.imageio.spi.ImageReaderSpi;
 import javax.imageio.stream.FileImageInputStream;
 import provider.MapleCanvas;
-import com.sun.imageio.plugins.png.PNGImageReaderSpi;
 
 public class FileStoredPngMapleCanvas implements MapleCanvas {
     private File file;

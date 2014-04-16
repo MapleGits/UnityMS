@@ -20,6 +20,9 @@
  */
 package client;
 
+import client.messages.MessageCallback;
+import database.DatabaseConnection;
+import database.DatabaseException;
 import java.rmi.RemoteException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -38,9 +41,6 @@ import java.util.Properties;
 import java.util.Set;
 import java.util.concurrent.ScheduledFuture;
 import javax.script.ScriptEngine;
-import client.messages.MessageCallback;
-import database.DatabaseConnection;
-import database.DatabaseException;
 import net.channel.ChannelServer;
 import net.channel.handler.SpawnPetHandler;
 import net.login.LoginServer;
@@ -49,15 +49,15 @@ import net.world.MaplePartyCharacter;
 import net.world.PartyOperation;
 import net.world.guild.MapleGuildCharacter;
 import net.world.remote.WorldChannelInterface;
+import org.apache.mina.common.IoSession;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import scripting.npc.NPCScriptManager;
 import server.MapleTrade;
 import server.TimerManager;
 import tools.IPAddressTool;
 import tools.MapleAESOFB;
 import tools.MaplePacketCreator;
-import org.apache.mina.common.IoSession;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 public class MapleClient {
     public static final int LOGIN_NOTLOGGEDIN = 0;

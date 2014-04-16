@@ -20,6 +20,8 @@
  */
 package scripting.reactor;
 
+import client.MapleClient;
+import database.DatabaseConnection;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -28,8 +30,6 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import javax.script.Invocable;
-import client.MapleClient;
-import database.DatabaseConnection;
 import scripting.AbstractScriptManager;
 import server.life.MapleMonsterInformationProvider.DropEntry;
 import server.maps.MapleReactor;

@@ -20,13 +20,6 @@
  */
 package client.messages.commands;
 
-import java.util.logging.Level;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.Collection;
-import static client.messages.CommandProcessor.getOptionalIntArg;
 import client.IItem;
 import client.Item;
 import client.MapleCharacter;
@@ -37,10 +30,17 @@ import client.MapleStat;
 import client.SkillFactory;
 import client.messages.Command;
 import client.messages.CommandDefinition;
+import static client.messages.CommandProcessor.getOptionalIntArg;
 import client.messages.IllegalCommandSyntaxException;
 import client.messages.MessageCallback;
 import client.messages.ServernoticeMapleClientMessageCallback;
 import database.DatabaseConnection;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.Collection;
+import java.util.logging.Level;
 import server.MapleInventoryManipulator;
 import server.MapleItemInformationProvider;
 import server.MapleShop;

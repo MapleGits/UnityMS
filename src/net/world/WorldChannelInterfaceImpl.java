@@ -25,6 +25,7 @@
  */
 package net.world;
 
+import database.DatabaseConnection;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.sql.Connection;
@@ -39,7 +40,6 @@ import java.util.Map;
 import java.util.Properties;
 import javax.rmi.ssl.SslRMIClientSocketFactory;
 import javax.rmi.ssl.SslRMIServerSocketFactory;
-import database.DatabaseConnection;
 import net.channel.remote.ChannelWorldInterface;
 import net.login.remote.LoginWorldInterface;
 import net.world.guild.MapleGuild;
@@ -47,9 +47,9 @@ import net.world.guild.MapleGuildCharacter;
 import net.world.remote.CheaterData;
 import net.world.remote.WorldChannelInterface;
 import net.world.remote.WorldLocation;
-import tools.CollectionUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import tools.CollectionUtil;
 
 /**
  *

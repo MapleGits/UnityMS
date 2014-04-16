@@ -24,6 +24,7 @@
  */
 package net.world;
 
+import database.DatabaseConnection;
 import java.rmi.ConnectException;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
@@ -47,7 +48,6 @@ import java.util.Set;
 import java.util.concurrent.atomic.AtomicInteger;
 import javax.rmi.ssl.SslRMIClientSocketFactory;
 import javax.rmi.ssl.SslRMIServerSocketFactory;
-import database.DatabaseConnection;
 import net.channel.remote.ChannelWorldInterface;
 import net.login.remote.LoginWorldInterface;
 import net.world.guild.MapleGuild;

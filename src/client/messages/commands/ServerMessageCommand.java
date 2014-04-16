@@ -25,9 +25,9 @@ import client.messages.Command;
 import client.messages.CommandDefinition;
 import client.messages.IllegalCommandSyntaxException;
 import client.messages.MessageCallback;
+import java.util.Collection;
 import net.channel.ChannelServer;
 import tools.StringUtil;
-import java.util.Collection;
 
 public class ServerMessageCommand implements Command {
     @Override

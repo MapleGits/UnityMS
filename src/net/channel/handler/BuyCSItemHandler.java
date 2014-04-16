@@ -20,26 +20,23 @@
  */
 package net.channel.handler;
 
-import java.util.logging.Level;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import client.MapleClient;
+import database.DatabaseConnection;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import client.MapleClient;
-import client.MapleInventoryType;
-import client.MaplePet;
+import java.util.logging.Level;
 import net.AbstractMaplePacketHandler;
-import net.channel.ChannelServer;
-import database.DatabaseConnection;
 import net.MapleServerHandler;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import server.CashItemFactory;
+import server.CashItemInfo;
 import server.MapleInventoryManipulator;
 import server.MapleItemInformationProvider;
 import tools.MaplePacketCreator;
 import tools.data.input.SeekableLittleEndianAccessor;
-import server.CashItemFactory;
-import server.CashItemInfo;
 
 /**
  *

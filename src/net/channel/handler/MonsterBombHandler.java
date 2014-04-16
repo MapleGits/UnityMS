@@ -24,7 +24,6 @@ import client.MapleClient;
 import net.AbstractMaplePacketHandler;
 import server.life.MapleMonster;
 import server.maps.MapleMap;
-import tools.MaplePacketCreator;
 import tools.data.input.SeekableLittleEndianAccessor;
 
 public class MonsterBombHandler extends AbstractMaplePacketHandler {

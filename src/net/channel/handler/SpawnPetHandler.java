@@ -20,6 +20,11 @@
  */
 package net.channel.handler;
 
+import client.MapleClient;
+import client.MapleInventoryType;
+import client.MaplePet;
+import client.MapleStat;
+import database.DatabaseConnection;
 import java.io.File;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -28,11 +33,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import client.MapleClient;
-import client.MapleInventoryType;
-import client.MaplePet;
-import client.MapleStat;
-import database.DatabaseConnection;
 import net.AbstractMaplePacketHandler;
 import provider.MapleData;
 import provider.MapleDataProviderFactory;

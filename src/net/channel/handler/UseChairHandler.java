@@ -1,12 +1,12 @@
 package net.channel.handler;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import client.IItem;
 import client.MapleClient;
 import client.MapleInventoryType;
 import client.anticheat.CheatingOffense;
 import net.AbstractMaplePacketHandler;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import tools.MaplePacketCreator;
 import tools.data.input.SeekableLittleEndianAccessor;
 

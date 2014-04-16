@@ -20,17 +20,17 @@
  */
 package net.channel.handler;
 
-import java.util.List;
 import client.MapleCharacter;
 import client.MapleClient;
 import client.anticheat.CheatingOffense;
+import java.util.List;
 import net.MaplePacket;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import server.movement.AbsoluteLifeMovement;
 import server.movement.LifeMovementFragment;
 import tools.MaplePacketCreator;
 import tools.data.input.SeekableLittleEndianAccessor;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 public class MovePlayerHandler extends AbstractMovementPacketHandler {
     private static Logger log = LoggerFactory.getLogger(MovePlayerHandler.class);

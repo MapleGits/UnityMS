@@ -20,13 +20,13 @@
  */
 package client.messages.commands;
 
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
 import client.MapleClient;
 import client.messages.Command;
 import client.messages.CommandDefinition;
 import client.messages.MessageCallback;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import tools.performance.CPUSampler;
 
 public class ProfilingCommands implements Command {

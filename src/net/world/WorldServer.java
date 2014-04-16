@@ -25,6 +25,7 @@
  */
 package net.world;
 
+import database.DatabaseConnection;
 import java.io.FileReader;
 import java.io.InputStreamReader;
 import java.rmi.RemoteException;
@@ -33,7 +34,6 @@ import java.rmi.registry.Registry;
 import java.util.Properties;
 import javax.rmi.ssl.SslRMIClientSocketFactory;
 import javax.rmi.ssl.SslRMIServerSocketFactory;
-import database.DatabaseConnection;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

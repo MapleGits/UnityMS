@@ -25,12 +25,12 @@
  */
 package net.channel.handler;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import client.IItem;
 import client.MapleClient;
 import client.MapleInventoryType;
 import net.AbstractMaplePacketHandler;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import server.MapleInventoryManipulator;
 import server.MapleItemInformationProvider;
 import server.life.MapleLifeFactory;

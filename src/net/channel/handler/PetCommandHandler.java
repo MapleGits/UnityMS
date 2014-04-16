@@ -20,13 +20,13 @@
  */
 package net.channel.handler;
 
-import java.util.Random;
 import client.ExpTable;
 import client.MapleCharacter;
 import client.MapleClient;
 import client.MaplePet;
 import client.PetCommand;
 import client.PetCommandFactory;
+import java.util.Random;
 import net.AbstractMaplePacketHandler;
 import tools.MaplePacketCreator;
 import tools.data.input.SeekableLittleEndianAccessor;

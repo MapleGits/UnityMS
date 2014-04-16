@@ -22,19 +22,19 @@
  */
 package net.channel.handler;
 
+import client.MapleCharacter;
+import client.MapleClient;
+import database.DatabaseConnection;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import net.AbstractMaplePacketHandler;
+import net.world.guild.MapleGuild;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import client.MapleCharacter;
-import client.MapleClient;
-import database.DatabaseConnection;
-import net.AbstractMaplePacketHandler;
 import tools.MaplePacketCreator;
 import tools.data.input.SeekableLittleEndianAccessor;
-import net.world.guild.MapleGuild;
 
 public class BBSOperationHandler extends AbstractMaplePacketHandler {
     private static final Logger log = LoggerFactory.getLogger(BBSOperationHandler.class);

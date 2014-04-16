@@ -20,6 +20,7 @@
  */
 package client.anticheat;
 
+import client.MapleCharacter;
 import java.awt.Point;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
@@ -29,7 +30,6 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ScheduledFuture;
-import client.MapleCharacter;
 import server.AutobanManager;
 import server.TimerManager;
 import tools.StringUtil;

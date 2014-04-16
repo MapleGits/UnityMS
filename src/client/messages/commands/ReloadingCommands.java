@@ -20,13 +20,13 @@
  */
 package client.messages.commands;
 
-import java.rmi.RemoteException;
 import client.MapleClient;
 import client.messages.Command;
 import client.messages.CommandDefinition;
 import client.messages.CommandProcessor;
 import client.messages.IllegalCommandSyntaxException;
 import client.messages.MessageCallback;
+import java.rmi.RemoteException;
 import net.ExternalCodeTableGetter;
 import net.PacketProcessor;
 import net.RecvPacketOpcode;

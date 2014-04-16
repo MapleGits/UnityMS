@@ -25,12 +25,12 @@
  */
 package scripting;
 
+import client.MapleClient;
 import java.io.File;
 import java.io.FileReader;
 import javax.script.Invocable;
 import javax.script.ScriptEngine;
 import javax.script.ScriptEngineManager;
-import client.MapleClient;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

@@ -25,6 +25,8 @@
  */
 package server.quest;
 
+import client.MapleQuestStatus;
+import database.DatabaseConnection;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.FileReader;
@@ -38,8 +40,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.LinkedList;
 import java.util.Properties;
-import client.MapleQuestStatus;
-import database.DatabaseConnection;
 
 /**
  *

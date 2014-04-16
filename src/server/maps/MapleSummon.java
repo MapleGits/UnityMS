@@ -25,10 +25,10 @@
  */
 package server.maps;
 
-import java.awt.Point;
 import client.MapleCharacter;
 import client.MapleClient;
 import client.SkillFactory;
+import java.awt.Point;
 import tools.MaplePacketCreator;
 
 /**

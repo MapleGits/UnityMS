@@ -20,13 +20,13 @@
  */
 package client.messages.commands;
 
-import java.util.Arrays;
-import java.util.List;
 import client.MapleClient;
 import client.messages.Command;
 import client.messages.CommandDefinition;
 import client.messages.IllegalCommandSyntaxException;
 import client.messages.MessageCallback;
+import java.util.Arrays;
+import java.util.List;
 import server.life.MapleMonster;
 import server.maps.MapleMap;
 import server.maps.MapleMapObject;

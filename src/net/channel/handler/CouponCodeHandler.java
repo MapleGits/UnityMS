@@ -20,12 +20,9 @@
  */
 package net.channel.handler;
 
-import java.sql.SQLException;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import client.MapleClient;
+import java.sql.SQLException;
 import net.AbstractMaplePacketHandler;
-import net.MapleServerHandler;
 import server.MapleInventoryManipulator;
 import tools.MaplePacketCreator;
 import tools.data.input.SeekableLittleEndianAccessor;

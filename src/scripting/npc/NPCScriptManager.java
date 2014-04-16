@@ -20,10 +20,10 @@
  */
 package scripting.npc;
 
+import client.MapleClient;
 import java.util.HashMap;
 import java.util.Map;
 import javax.script.Invocable;
-import client.MapleClient;
 import scripting.AbstractScriptManager;
 
 /**

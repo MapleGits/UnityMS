@@ -22,11 +22,11 @@ package net.mina;
 
 import client.MapleClient;
 import net.MaplePacket;
-import tools.MapleCustomEncryption;
 import org.apache.mina.common.ByteBuffer;
 import org.apache.mina.common.IoSession;
 import org.apache.mina.filter.codec.ProtocolEncoder;
 import org.apache.mina.filter.codec.ProtocolEncoderOutput;
+import tools.MapleCustomEncryption;
 
 public class MaplePacketEncoder implements ProtocolEncoder {
 	//private static Logger log = LoggerFactory.getLogger(MaplePacketEncoder.class);

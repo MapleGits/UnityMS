@@ -20,6 +20,8 @@
  */
 package scripting.event;
 
+import client.MapleCharacter;
+import database.DatabaseConnection;
 import java.io.File;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -33,8 +35,6 @@ import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.script.ScriptException;
-import client.MapleCharacter;
-import database.DatabaseConnection;
 import net.world.MapleParty;
 import net.world.MaplePartyCharacter;
 import provider.MapleDataProviderFactory;

@@ -20,6 +20,11 @@
  */
 package client.messages;
 
+import client.MapleCharacter;
+import client.MapleClient;
+import client.SkillFactory;
+import client.messages.commands.HelpCommand;
+import database.DatabaseConnection;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
@@ -41,21 +46,16 @@ import javax.script.ScriptEngine;
 import javax.script.ScriptEngineFactory;
 import javax.script.ScriptEngineManager;
 import javax.script.ScriptException;
-import client.MapleCharacter;
-import client.MapleClient;
-import client.SkillFactory;
-import client.messages.commands.HelpCommand;
-import database.DatabaseConnection;
 import net.channel.ChannelServer;
 import net.channel.handler.GeneralchatHandler;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import server.TimerManager;
 import server.maps.MapleMap;
 import tools.ClassFinder;
 import tools.MockIOSession;
 import tools.Pair;
 import tools.StringUtil;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 public class CommandProcessor implements CommandProcessorMBean {
     private static final Logger log = LoggerFactory.getLogger(GeneralchatHandler.class);

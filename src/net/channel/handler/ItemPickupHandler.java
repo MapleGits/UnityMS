@@ -29,14 +29,14 @@
  */
 package net.channel.handler;
 
-import java.util.logging.Level;
+import client.MapleClient;
+import client.anticheat.CheatingOffense;
+import database.DatabaseConnection;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import client.MapleClient;
-import client.anticheat.CheatingOffense;
-import database.DatabaseConnection;
+import java.util.logging.Level;
 import net.AbstractMaplePacketHandler;
 import server.MapleInventoryManipulator;
 import server.MapleItemInformationProvider;

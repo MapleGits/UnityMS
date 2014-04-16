@@ -20,13 +20,13 @@
  */
 package net.channel.handler;
 
-import java.awt.Point;
-import java.util.concurrent.ScheduledFuture;
 import client.ISkill;
 import client.MapleCharacter.CancelCooldownAction;
 import client.MapleClient;
 import client.SkillFactory;
 import client.messages.ServernoticeMapleClientMessageCallback;
+import java.awt.Point;
+import java.util.concurrent.ScheduledFuture;
 import net.AbstractMaplePacketHandler;
 import server.AutobanManager;
 import server.MapleStatEffect;

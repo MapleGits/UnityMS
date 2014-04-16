@@ -22,6 +22,9 @@
  */
 package net.world.guild;
 
+import client.MapleCharacter;
+import client.MapleClient;
+import database.DatabaseConnection;
 import java.io.FileReader;
 import java.io.InputStreamReader;
 import java.rmi.RemoteException;
@@ -35,16 +38,13 @@ import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 import java.util.Set;
-import client.MapleCharacter;
-import client.MapleClient;
-import database.DatabaseConnection;
 import net.MaplePacket;
 import net.channel.ChannelServer;
 import net.channel.remote.ChannelWorldInterface;
 import net.world.WorldRegistryImpl;
-import tools.MaplePacketCreator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import tools.MaplePacketCreator;
 
 public class MapleGuild implements java.io.Serializable {
     private static org.slf4j.Logger log = org.slf4j.LoggerFactory.getLogger(MapleGuild.class);

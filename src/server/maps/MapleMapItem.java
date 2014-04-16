@@ -29,10 +29,10 @@
  */
 package server.maps;
 
-import java.awt.Point;
 import client.IItem;
 import client.MapleCharacter;
 import client.MapleClient;
+import java.awt.Point;
 import tools.MaplePacketCreator;
 
 /**

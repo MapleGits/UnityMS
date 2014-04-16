@@ -20,19 +20,19 @@
  */
 package net.channel.handler;
 
-import java.util.ArrayList;
-import java.util.List;
 import client.ISkill;
 import client.MapleClient;
 import client.MapleJob;
 import client.MapleStat;
 import client.SkillFactory;
+import java.util.ArrayList;
+import java.util.List;
 import net.AbstractMaplePacketHandler;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import tools.MaplePacketCreator;
 import tools.Pair;
 import tools.data.input.SeekableLittleEndianAccessor;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 public class DistributeAPHandler extends AbstractMaplePacketHandler {
     private static Logger log = LoggerFactory.getLogger(DistributeAPHandler.class);

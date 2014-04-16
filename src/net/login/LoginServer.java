@@ -20,6 +20,7 @@
  */
 package net.login;
 
+import database.DatabaseConnection;
 import java.io.FileReader;
 import java.io.IOException;
 import java.lang.management.ManagementFactory;
@@ -37,14 +38,12 @@ import java.util.Set;
 import javax.management.MBeanServer;
 import javax.management.ObjectName;
 import javax.rmi.ssl.SslRMIClientSocketFactory;
-import database.DatabaseConnection;
 import net.MapleServerHandler;
 import net.PacketProcessor;
 import net.login.remote.LoginWorldInterface;
 import net.mina.MapleCodecFactory;
 import net.world.remote.WorldLoginInterface;
 import net.world.remote.WorldRegistry;
-import server.TimerManager;
 import org.apache.mina.common.ByteBuffer;
 import org.apache.mina.common.IoAcceptor;
 import org.apache.mina.common.SimpleByteBufferAllocator;
@@ -53,6 +52,7 @@ import org.apache.mina.transport.socket.nio.SocketAcceptor;
 import org.apache.mina.transport.socket.nio.SocketAcceptorConfig;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import server.TimerManager;
 
 public class LoginServer implements Runnable, LoginServerMBean {
     public static final int PORT = 8484;

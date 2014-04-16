@@ -22,17 +22,17 @@
  */
 package net.channel.handler;
 
+import client.MapleCharacter;
+import client.MapleClient;
+import client.MaplePet;
+import java.util.Iterator;
+import net.AbstractMaplePacketHandler;
 import net.world.guild.MapleGuild;
 import net.world.guild.MapleGuildResponse;
-import client.MapleClient;
-import net.AbstractMaplePacketHandler;
-import tools.data.input.SeekableLittleEndianAccessor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import java.util.Iterator;
 import tools.MaplePacketCreator;
-import client.MapleCharacter;
-import client.MaplePet;
+import tools.data.input.SeekableLittleEndianAccessor;
 
 public class GuildOperationHandler extends AbstractMaplePacketHandler {
     private boolean isGuildNameAcceptable(String name) {

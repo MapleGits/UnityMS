@@ -20,8 +20,8 @@
  */
 package net.login.handler;
 
-import java.util.Calendar;
 import client.MapleClient;
+import java.util.Calendar;
 import net.AbstractMaplePacketHandler;
 import tools.MaplePacketCreator;
 import tools.data.input.SeekableLittleEndianAccessor;

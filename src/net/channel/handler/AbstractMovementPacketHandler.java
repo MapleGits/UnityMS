@@ -24,9 +24,9 @@ import java.awt.Point;
 import java.util.ArrayList;
 import java.util.List;
 import net.AbstractMaplePacketHandler;
-import server.life.MapleMonster;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import server.maps.AnimatedMapleMapObject;
-import server.maps.MapleMapObjectType;
 import server.movement.AbsoluteLifeMovement;
 import server.movement.ChairMovement;
 import server.movement.ChangeEquipSpecialAwesome;
@@ -35,8 +35,6 @@ import server.movement.LifeMovementFragment;
 import server.movement.RelativeLifeMovement;
 import server.movement.TeleportMovement;
 import tools.data.input.LittleEndianAccessor;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 public abstract class AbstractMovementPacketHandler extends AbstractMaplePacketHandler {
     private static Logger log = LoggerFactory.getLogger(AbstractMovementPacketHandler.class);

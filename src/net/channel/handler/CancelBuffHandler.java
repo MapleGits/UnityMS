@@ -26,8 +26,8 @@ import client.SkillFactory;
 import net.AbstractMaplePacketHandler;
 import net.MaplePacketHandler;
 import server.MapleStatEffect;
-import tools.data.input.SeekableLittleEndianAccessor;
 import tools.MaplePacketCreator;
+import tools.data.input.SeekableLittleEndianAccessor;
 
 public class CancelBuffHandler extends AbstractMaplePacketHandler implements MaplePacketHandler {
     @Override

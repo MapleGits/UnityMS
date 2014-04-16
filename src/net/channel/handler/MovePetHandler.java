@@ -20,12 +20,12 @@
  */
 package net.channel.handler;
 
-import java.awt.Point;
-import java.util.Arrays;
-import java.util.List;
 import client.MapleCharacter;
 import client.MapleClient;
 import client.MapleInventoryType;
+import java.awt.Point;
+import java.util.Arrays;
+import java.util.List;
 import server.MapleInventoryManipulator;
 import server.maps.MapleMapItem;
 import server.maps.MapleMapObject;
