@@ -137,14 +137,6 @@ public class LoginServer implements Runnable, LoginServerMBean {
                         DatabaseConnection.getConnection();
                         prop = wli.getWorldProperties();
                         userLimit = Integer.parseInt(prop.getProperty("login.userlimit"));
-                        try {
-                            fileReader = new FileReader("subnet.properties");
-                            subnetInfo.load(fileReader);
-                            fileReader.close();
-                        } catch (Exception e) {
-                            System.out.println("Could not load subnet configuration, falling back to world defaults");
-                            System.out.println(e);
-                        }
                     } catch (Exception e) {
                         System.out.println("Reconnecting failed");
                         System.out.println(e);
@@ -177,14 +169,6 @@ public class LoginServer implements Runnable, LoginServerMBean {
             DatabaseConnection.getConnection();
             prop = wli.getWorldProperties();
             userLimit = Integer.parseInt(prop.getProperty("login.userlimit"));
-            try {
-                fileReader = new FileReader("subnet.properties");
-                subnetInfo.load(fileReader);
-                fileReader.close();
-            } catch (Exception e) {
-                System.out.println("Could not load subnet configuration, falling back to world defaults");
-                System.out.println(e);
-            }
         } catch (Exception e) {
             throw new RuntimeException("Could not connect to world server.", e);
         }

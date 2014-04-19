@@ -1,31 +1,3 @@
-/*
- This file is part of the OdinMS Maple Story Server
- Copyright (C) 2008 Patrick Huy <patrick.huy@frz.cc> 
- Matthias Butz <matze@odinms.de>
- Jan Christian Meyer <vimes@odinms.de>
-
- This program is free software: you can redistribute it and/or modify
- it under the terms of the GNU Affero General Public License version 3
- as published by the Free Software Foundation. You may not use, modify
- or distribute this program under any other version of the
- GNU Affero General Public License.
-
- This program is distributed in the hope that it will be useful,
- but WITHOUT ANY WARRANTY; without even the implied warranty of
- MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- GNU Affero General Public License for more details.
-
- You should have received a copy of the GNU Affero General Public License
- along with this program.  If not, see <http://www.gnu.org/licenses/>.
- */
-
-/*
- * MapleItemInformationProvider.java
- * 
- * Created on 26. November 2007, 21:58
- * 
- * To change this template, choose Tools | Template Manager and open the template in the editor.
- */
 package server;
 
 import client.Equip;
@@ -45,13 +17,6 @@ import provider.MapleDataProvider;
 import provider.MapleDataProviderFactory;
 import provider.MapleDataTool;
 
-/**
- *
- * @author Matze
- *
- * TODO: make faster
- *
- */
 public class MapleItemInformationProvider {
     private static MapleItemInformationProvider instance = null;
     protected MapleDataProvider itemData;
@@ -74,9 +39,9 @@ public class MapleItemInformationProvider {
      * Creates a new instance of MapleItemInformationProvider
      */
     protected MapleItemInformationProvider() {
-        itemData = MapleDataProviderFactory.getDataProvider(new File(System.getProperty("wzpath") + "/Item.wz"));
-        equipData = MapleDataProviderFactory.getDataProvider(new File(System.getProperty("wzpath") + "/Character.wz"));
-        stringData = MapleDataProviderFactory.getDataProvider(new File(System.getProperty("wzpath") + "/String.wz")).getData("Item.img");
+        itemData = MapleDataProviderFactory.getDataProvider(new File(System.getProperty("wzpath") + "/Data.wz" + "/Item"));
+        equipData = MapleDataProviderFactory.getDataProvider(new File(System.getProperty("wzpath") + "/Data.wz" + "/Character"));
+        stringData = MapleDataProviderFactory.getDataProvider(new File(System.getProperty("wzpath") + "/Data.wz" + "/String")).getData("Item.img");
     }
 
     public static MapleItemInformationProvider getInstance() {

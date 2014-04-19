@@ -1,32 +1,3 @@
-/*
- This file is part of the OdinMS Maple Story Server
- Copyright (C) 2008 Patrick Huy <patrick.huy@frz.cc> 
- Matthias Butz <matze@odinms.de>
- Jan Christian Meyer <vimes@odinms.de>
-
- This program is free software: you can redistribute it and/or modify
- it under the terms of the GNU Affero General Public License version 3
- as published by the Free Software Foundation. You may not use, modify
- or distribute this program under any other version of the
- GNU Affero General Public License.
-
- This program is distributed in the hope that it will be useful,
- but WITHOUT ANY WARRANTY; without even the implied warranty of
- MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- GNU Affero General Public License for more details.
-
- You should have received a copy of the GNU Affero General Public License
- along with this program.  If not, see <http://www.gnu.org/licenses/>.
- */
-
-/*
- * MapleQuest.java
- *
- * Created on 10. Dezember 2007, 23:09
- *
- * To change this template, choose Tools | Template Manager
- * and open the template in the editor.
- */
 package server.quest;
 
 import client.MapleCharacter;
@@ -45,10 +16,6 @@ import provider.MapleDataProvider;
 import provider.MapleDataProviderFactory;
 import provider.MapleDataTool;
 
-/**
- *
- * @author Matze
- */
 public class MapleQuest {
     private static Map<Integer, MapleQuest> quests = new HashMap<Integer, MapleQuest>();
     protected int id;
@@ -60,7 +27,7 @@ public class MapleQuest {
     private boolean autoStart;
     private boolean autoPreComplete;
     private boolean repeatable = false;
-    private static MapleDataProvider questData = MapleDataProviderFactory.getDataProvider(new File(System.getProperty("wzpath") + "/Quest.wz"));
+    private static MapleDataProvider questData = MapleDataProviderFactory.getDataProvider(new File(System.getProperty("wzpath") + "/Data.wz" + "/Quest"));
     private static MapleData actions = questData.getData("Act.img");
     private static MapleData requirements = questData.getData("Check.img");
     private static MapleData info = questData.getData("QuestInfo.img");

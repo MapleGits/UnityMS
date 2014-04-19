@@ -64,7 +64,6 @@ public class LoginWorker implements Runnable {
                 possibleLoginHistory.remove(0);
             }
             possibleLoginHistory.add(possibleLogins);
-            System.out.println("Possible logins: " + possibleLogins + " (Waiting: " + waiting.size() + ")");
             for (int i = 0; i < possibleLogins; i++) {
                 final MapleClient client;
                 synchronized (waiting) {

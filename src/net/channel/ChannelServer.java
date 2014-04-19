@@ -87,7 +87,7 @@ public class ChannelServer implements Runnable, ChannelServerMBean {
     private List<Pair<MapleSquad, MapleSquadType>> MapleSquads;
 
     private ChannelServer(String key) {
-        mapFactory = new MapleMapFactory(MapleDataProviderFactory.getDataProvider(new File(System.getProperty("wzpath") + "/Map.wz")), MapleDataProviderFactory.getDataProvider(new File(System.getProperty("wzpath") + "/String.wz")));
+        mapFactory = new MapleMapFactory(MapleDataProviderFactory.getDataProvider(new File(System.getProperty("wzpath") + "/Data.wz" + "/Map")), MapleDataProviderFactory.getDataProvider(new File(System.getProperty("wzpath") + "/Data.wz" + "/String")));
         this.key = key;
     }
 

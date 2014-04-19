@@ -1,23 +1,3 @@
-/*
- This file is part of the OdinMS Maple Story Server
- Copyright (C) 2008 Patrick Huy <patrick.huy@frz.cc> 
- Matthias Butz <matze@odinms.de>
- Jan Christian Meyer <vimes@odinms.de>
-
- This program is free software: you can redistribute it and/or modify
- it under the terms of the GNU Affero General Public License version 3
- as published by the Free Software Foundation. You may not use, modify
- or distribute this program under any other version of the
- GNU Affero General Public License.
-
- This program is distributed in the hope that it will be useful,
- but WITHOUT ANY WARRANTY; without even the implied warranty of
- MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- GNU Affero General Public License for more details.
-
- You should have received a copy of the GNU Affero General Public License
- along with this program.  If not, see <http://www.gnu.org/licenses/>.
- */
 package client;
 
 import client.messages.MessageCallback;
@@ -50,13 +30,10 @@ import net.world.PartyOperation;
 import net.world.guild.MapleGuildCharacter;
 import net.world.remote.WorldChannelInterface;
 import org.apache.mina.common.IoSession;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import scripting.npc.NPCScriptManager;
 import server.MapleTrade;
 import server.TimerManager;
 import tools.IPAddressTool;
-import tools.MapleAESOFB;
 import tools.MaplePacketCreator;
 
 public class MapleClient {
@@ -65,9 +42,6 @@ public class MapleClient {
     public static final int LOGIN_LOGGEDIN = 2;
     public static final int LOGIN_WAITING = 3;
     public static final String CLIENT_KEY = "CLIENT";
-    private static final Logger log = LoggerFactory.getLogger(MapleClient.class);
-    private MapleAESOFB send;
-    private MapleAESOFB receive;
     private IoSession session;
     private MapleCharacter player;
     private int channel = 1;
@@ -86,18 +60,8 @@ public class MapleClient {
     private Map<String, ScriptEngine> engines = new HashMap<String, ScriptEngine>();
     private ScheduledFuture<?> idleTask = null;
 
-    public MapleClient(MapleAESOFB send, MapleAESOFB receive, IoSession session) {
-        this.send = send;
-        this.receive = receive;
+    public MapleClient(IoSession session) {
         this.session = session;
-    }
-
-    public MapleAESOFB getReceiveCrypto() {
-        return receive;
-    }
-
-    public MapleAESOFB getSendCrypto() {
-        return send;
     }
 
     public IoSession getSession() {
@@ -124,7 +88,8 @@ public class MapleClient {
             try {
                 chars.add(MapleCharacter.loadCharFromDB(cni.id, this, false));
             } catch (SQLException e) {
-                log.error("Loading characters failed", e);
+                System.out.println("Loading characters failed");
+                System.out.println(e);
             }
         }
         return chars;
@@ -153,7 +118,8 @@ public class MapleClient {
             rs.close();
             ps.close();
         } catch (SQLException e) {
-            log.error("THROW", e);
+            System.out.println("THROW");
+            System.out.println(e);
         }
         return chars;
     }
@@ -200,7 +166,8 @@ public class MapleClient {
             rs.close();
             ps.close();
         } catch (SQLException ex) {
-            log.error("Error checking ip bans", ex);
+            System.out.println("Error checking ip bans");
+            System.out.println(ex);
         }
         return ret;
     }
@@ -235,7 +202,8 @@ public class MapleClient {
             rs.close();
             ps.close();
         } catch (SQLException ex) {
-            log.error("Error checking mac bans", ex);
+            System.out.println("Error checking mac bans");
+            System.out.println(ex);
         }
         return ret;
     }
@@ -293,7 +261,8 @@ public class MapleClient {
             }
             ps.close();
         } catch (SQLException e) {
-            log.error("Error banning MACs", e);
+            System.out.println("Error banning MACs");
+            System.out.println(e);
         }
     }
 
@@ -404,7 +373,8 @@ public class MapleClient {
             rs.close();
             ps.close();
         } catch (SQLException e) {
-            log.error("ERROR", e);
+            System.out.println("ERROR");
+            System.out.println(e);
         }
         return loginok;
     }
@@ -467,7 +437,8 @@ public class MapleClient {
             ps.executeUpdate();
             ps.close();
         } catch (SQLException e) {
-            log.error("Error while unbanning", e);
+            System.out.println("Error while unbanning");
+            System.out.println(e);
         }
     }
 
@@ -492,7 +463,8 @@ public class MapleClient {
             ps.executeUpdate();
             ps.close();
         } catch (SQLException e) {
-            log.error("Error saving MACs", e);
+            System.out.println("Error saving MACs");
+            System.out.println(e);
         }
     }
 
@@ -514,7 +486,8 @@ public class MapleClient {
             ps.executeUpdate();
             ps.close();
         } catch (SQLException e) {
-            log.error("ERROR", e);
+            System.out.println("ERROR");
+            System.out.println(e);
         }
         if (newstate == MapleClient.LOGIN_NOTLOGGEDIN) {
             loggedIn = false;
@@ -564,7 +537,8 @@ public class MapleClient {
             return state;
         } catch (SQLException e) {
             loggedIn = false;
-            log.error("ERROR", e);
+            System.out.println("ERROR");
+            System.out.println(e);
             throw new DatabaseException("Everything sucks", e);
         }
     }
@@ -625,12 +599,13 @@ public class MapleClient {
             } catch (RemoteException e) {
                 getChannelServer().reconnectWorld();
             } catch (Exception e) {
-                log.error(getLogMessage(this, "ERROR"), e);
+                System.out.println(getLogMessage(this, "ERROR"));
+                System.out.println(e);
             } finally {
                 if (getChannelServer() != null) {
                     getChannelServer().removePlayer(chr);
                 } else {
-                    log.error(getLogMessage(this, "No channelserver associated to char {}", chr.getName()));
+                    System.out.println(getLogMessage(this, "No channelserver associated to char " + chr.getName()));
                 }
             }
         }
@@ -695,7 +670,7 @@ public class MapleClient {
                 try {
                     LoginServer.getInstance().getWorldInterface().deleteGuildCharacter(mgc);
                 } catch (RemoteException re) {
-                    log.error("Unable to remove member from guild list.");
+                    System.out.println("Unable to remove member from guild list");
                     return false;
                 }
             }
@@ -708,7 +683,8 @@ public class MapleClient {
             ps.close();
             return true;
         } catch (SQLException e) {
-            log.error("ERROR", e);
+            System.out.println("ERROR");
+            System.out.println(e);
         }
         return false;
     }
@@ -746,7 +722,7 @@ public class MapleClient {
                 try {
                     if (lastPong - then < 0) {
                         if (getSession().isConnected()) {
-                            log.info(getLogMessage(MapleClient.this, "Autodc"));
+                            System.out.println(getLogMessage(MapleClient.this, "Ping Timeout"));
                             getSession().close();
                         }
                     }
@@ -805,7 +781,7 @@ public class MapleClient {
             }
             return ret;
         } catch (SQLException e) {
-            log.error("SQL THROW");
+            System.out.println("SQL THROW");
         }
         return -1;
     }

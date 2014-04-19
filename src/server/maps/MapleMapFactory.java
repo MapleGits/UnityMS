@@ -1,23 +1,3 @@
-/*
- This file is part of the OdinMS Maple Story Server
- Copyright (C) 2008 Patrick Huy <patrick.huy@frz.cc> 
- Matthias Butz <matze@odinms.de>
- Jan Christian Meyer <vimes@odinms.de>
-
- This program is free software: you can redistribute it and/or modify
- it under the terms of the GNU Affero General Public License version 3
- as published by the Free Software Foundation. You may not use, modify
- or distribute this program under any other version of the
- GNU Affero General Public License.
-
- This program is distributed in the hope that it will be useful,
- but WITHOUT ANY WARRANTY; without even the implied warranty of
- MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- GNU Affero General Public License for more details.
-
- You should have received a copy of the GNU Affero General Public License
- along with this program.  If not, see <http://www.gnu.org/licenses/>.
- */
 package server.maps;
 
 import client.MapleCharacter;
@@ -30,8 +10,6 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import net.channel.ChannelServer;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import provider.MapleData;
 import provider.MapleDataProvider;
 import provider.MapleDataTool;
@@ -45,7 +23,6 @@ import tools.MockIOSession;
 import tools.StringUtil;
 
 public class MapleMapFactory {
-    private static Logger log = LoggerFactory.getLogger(MapleMapFactory.class);
     private MapleDataProvider source;
     private MapleData nameData;
     private Map<Integer, MapleMap> maps = new HashMap<Integer, MapleMap>();
@@ -185,18 +162,16 @@ public class MapleMapFactory {
                 }
                 maps.put(omapid, map);
                 if (channel > 0 && Boolean.parseBoolean(ChannelServer.getInstance(channel).getProperty("world.faekchar"))) {
-                    MapleClient faek = new MapleClient(null, null, new MockIOSession());
+                    MapleClient faek = new MapleClient(new MockIOSession());
                     try {
                         MapleCharacter faekchar = MapleCharacter.loadCharFromDB(30000, faek, true);
                         faek.setPlayer(faekchar);
-						//faekchar.setPlayerShop(new MaplePlayerShop(faekchar, "faekshop"));
-                        //faekchar.setPet(new MaplePet(5000000, (byte) 1));
-                        //faekchar.getPet().setName("dasGuteTier");
                         faekchar.setPosition(new Point(0, 0));
                         faekchar.setMap(map);
                         map.addPlayer(faekchar);
                     } catch (SQLException e) {
-                        log.error("Loading FAEK failed", e);
+                        System.out.println("Loading FAEK failed");
+                        System.out.println(e);
                     }
                 }
             }
@@ -229,7 +204,7 @@ public class MapleMapFactory {
         if (hide == 1) {
             myLife.setHide(true);
         } else if (hide > 1) {
-            log.warn("Hide > 1 ({})", hide);
+            System.out.println("Hide > 1 (" + hide + ")");
         }
         return myLife;
     }
